@@ -1,62 +1,37 @@
-<!doctype html>
+<!-- Nuova versione completa e funzionante della web app flashcard -->
+<!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SRS Flashcards — Active Recall</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard — Active Recall</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<main class="app">
-<section class="card" id="card">
-<header class="card-header">
-<h1 class="title">Flashcard — Active Recall</h1>
-<p class="subtitle">Compila lo spazio vuoto e verifica la risposta</p>
-</header>
+  <div class="container">
+    <h2>Flashcard — Active Recall</h2>
+    <p>Compila lo spazio vuoto e verifica la risposta</p>
 
-<div class="card-body">
-<form id="answerForm" class="answer-form" autocomplete="off">
-<label for="phrase" class="phrase-label" id="phraseLabel">Loading...</label>
+    <div id="cardArea">Caricamento...</div>
 
-<div class="input-row">
-<input id="answerInput" name="answer" type="text" placeholder="Scrivi la parola mancante" />
-<button type="submit" id="submitBtn" class="btn">Controlla</button>
-</div>
-</form>
+    <form id="answerForm" class="hidden">
+      <input id="answerInput" placeholder="Scrivi la parola mancante" autocomplete="off" />
+      <button type="submit">Controlla</button>
+    </form>
 
-<div id="solutionArea" class="solution-area hidden" aria-live="polite">
-<p id="solutionText" class="solution-text"></p>
-<p id="translationText" class="translation-text"></p>
-</div>
+    <div id="solutionArea" class="hidden">
+      <p><strong>Soluzione:</strong> <span id="solutionText"></span></p>
+      <p><strong>Traduzione:</strong> <span id="translationText"></span></p>
+      <div class="rating">
+        <button data-rate="easy">Facile</button>
+        <button data-rate="normal">Normale</button>
+        <button data-rate="hard">Difficile</button>
+      </div>
+    </div>
 
-<div id="ratingArea" class="rating-area hidden">
-<p class="rate-label">Quanto è stata facile questa card?</p>
-<div class="rating-buttons">
-<button id="easyBtn" class="btn rate">Facile</button>
-<button id="normalBtn" class="btn rate">Normale</button>
-<button id="hardBtn" class="btn rate">Difficile</button>
-</div>
-</div>
+    <button id="skipBtn" class="hidden">Salta</button>
+  </div>
 
-<div class="controls">
-<button id="showSolutionBtn" class="btn secondary">Mostra Soluzione</button>
-<button id="skipBtn" class="btn link">Salta</button>
-</div>
-</div>
-
-<footer class="card-footer">
-<div class="progress" id="progress">—</div>
-</footer>
-</section>
-
-<section class="aside">
-<details>
-<summary>Info</summary>
-<p>Versione demo: algoritmo SRS semplificato. Il codice applica SRP: ogni funzione ha una singola responsabilità.</p>
-</details>
-</section>
-</main>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
